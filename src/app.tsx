@@ -1,4 +1,3 @@
-import { useState } from "preact/hooks";
 import smartCrawImg from "./assets/smart_craw_crab_only.svg";
 import smartCrawSvg from "./assets/smart_craw_chonky_crab.svg";
 import screenshot from "./assets/ui.png";
