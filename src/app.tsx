@@ -118,7 +118,7 @@ docker run -p 8000:8000 -v $(pwd):/app/db \
       <Paragraph>If using a remote (eg Claude) LLM:</Paragraph>
       <CodeHighlighter lang="bash">
         {String.raw`
-# if running local Ollama.  --add-host is optional on Mac/Windows
+# if running remote LLM (eg Sonnet)
 docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
   -e ANTHROPIC_AUTH_TOKEN=[yourauthtoken] \
   -e ANTHROPIC_API_KEY=[yourapikey] \
