@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
+    "@ant-design/x": "^2.4.0",
     "antd": "^6.3.3",
-    "preact": "^10.29.0"
+    "preact": "^10.29.0",
+    "react-router": "^7.13.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.4",
