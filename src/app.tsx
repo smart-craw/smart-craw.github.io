@@ -9,7 +9,6 @@ import {
   Layout,
   Menu,
   theme,
-  Image,
   Typography,
   Space,
   Masonry,
@@ -161,7 +160,7 @@ export function App() {
   return (
     <Layout>
       <Sider breakpoint="sm">
-        <Image src={smartCrawImg} />
+        <img src={smartCrawImg} />
         <Menu
           theme="dark"
           mode="inline"
