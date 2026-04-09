@@ -9,6 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download latest release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download --repo smart-craw/smart-craw --pattern "asyncapi.json" --dir src/assets
       - name: Build
         run: |
           npm ci
