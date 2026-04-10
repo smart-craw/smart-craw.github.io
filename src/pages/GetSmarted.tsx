@@ -1,9 +1,12 @@
-import { Typography, Divider, Alert } from "antd";
+import { Typography, Alert, Space } from "antd";
 import { CodeHighlighter } from "@ant-design/x";
 const { Title, Paragraph } = Typography;
 const GetSmarted = () => {
   return (
-    <div style={{ margin: 16 }}>
+    <Space
+      vertical
+      style={{ display: "flex", marginLeft: 16, marginRight: 16 }}
+    >
       <Title level={3}>Quick Start</Title>
       <Paragraph>
         Smart Craw uses local (same physical device as where Smart Craw runs) to
@@ -13,7 +16,6 @@ const GetSmarted = () => {
         inside a Docker container. Only mount volumes that contain files that
         you aren't afraid to lose/modify.
       </Paragraph>
-      <Divider />
       <Alert
         type="warning"
         title="Caution!"
@@ -43,7 +45,7 @@ mkdir memory
 docker run -p 8000:8000 -v $(pwd):/app/db \
   -v $(pwd)/memory:/app/smart-craw-server/memory \
   --add-host=host.docker.internal:host-gateway  \
-  ghcr.io/smart-craw/smart-craw:v0.0.4
+  ghcr.io/smart-craw/smart-craw:v0.1.0
         `}
       </CodeHighlighter>
       <Paragraph>If using a remote (eg Claude) LLM:</Paragraph>
@@ -56,7 +58,7 @@ docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
   -v $(pwd):/app/db \
   -v $(pwd)/memory:/app/smart-craw-server/memory \
   --add-host=host.docker.internal:host-gateway \
-  ghcr.io/smart-craw/smart-craw:v0.0.4
+  ghcr.io/smart-craw/smart-craw:v0.1.0
           `}
       </CodeHighlighter>
       <Title level={4}>Full set of Docker environment variables</Title>
@@ -67,14 +69,19 @@ docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
             local Ollama)
           </li>
           <li>ANTHROPIC_AUTH_TOKEN (defaults to "ollama")</li>
-          <li>
-            ANTHROPIC_API_KEY (defaults to "sk-local-dummy") LOG_LEVEL (defaults
-            to "info")
-          </li>
+          <li>ANTHROPIC_API_KEY (defaults to "sk-local-dummy")</li>
           <li>LOG_LEVEL (defaults to "info")</li>
+          <li>
+            START_THINK_TOKEN (start token for thinking, defaults to
+            "&lt;think&gt;")
+          </li>
+          <li>
+            END_THINK_TOKEN (start token for thinking, defaults to
+            "&lt;/think&gt;")
+          </li>
         </ul>
       </Paragraph>
-    </div>
+    </Space>
   );
 };
 
