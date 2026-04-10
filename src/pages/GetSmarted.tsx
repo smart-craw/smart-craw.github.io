@@ -68,10 +68,11 @@ docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
           </li>
           <li>ANTHROPIC_AUTH_TOKEN (defaults to "ollama")</li>
           <li>
-            ANTHROPIC_API_KEY (defaults to "sk-local-dummy") LOG_LEVEL (defaults
-            to "info")
+            ANTHROPIC_API_KEY (defaults to "sk-local-dummy")
           </li>
           <li>LOG_LEVEL (defaults to "info")</li>
+          <li>START_THINK_TOKEN (start token for thinking, defaults to "<think>")</li>
+          <li>END_THINK_TOKEN (start token for thinking, defaults to "</think>")</li>
         </ul>
       </Paragraph>
     </div>
