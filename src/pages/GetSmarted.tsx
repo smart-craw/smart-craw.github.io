@@ -1,7 +1,10 @@
 import { Typography, Alert, Space } from "antd";
 import { CodeHighlighter } from "@ant-design/x";
 const { Title, Paragraph } = Typography;
-const GetSmarted = () => {
+type Props = {
+  version: string;
+};
+const GetSmarted = ({ version }: Props) => {
   return (
     <Space
       vertical
@@ -45,7 +48,7 @@ mkdir memory
 docker run -p 8000:8000 -v $(pwd):/app/db \
   -v $(pwd)/memory:/app/smart-craw-server/memory \
   --add-host=host.docker.internal:host-gateway  \
-  ghcr.io/smart-craw/smart-craw:v0.1.0
+  ghcr.io/smart-craw/smart-craw:${version}
         `}
       </CodeHighlighter>
       <Paragraph>If using a remote (eg Claude) LLM:</Paragraph>
@@ -58,7 +61,7 @@ docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
   -v $(pwd):/app/db \
   -v $(pwd)/memory:/app/smart-craw-server/memory \
   --add-host=host.docker.internal:host-gateway \
-  ghcr.io/smart-craw/smart-craw:v0.1.0
+  ghcr.io/smart-craw/smart-craw:${version}
           `}
       </CodeHighlighter>
       <Title level={4}>Full set of Docker environment variables</Title>
