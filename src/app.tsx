@@ -77,7 +77,10 @@ export function App() {
         >
           <Routes>
             <Route path={homeRoute} element={<Home />} />
-            <Route path={quickStartRoute} element={<GetSmarted />} />
+            <Route
+              path={quickStartRoute}
+              element={<GetSmarted version={asyncapiDoc.info.version} />}
+            />
             <Route
               path={apiRoute}
               // @ts-expect-error
