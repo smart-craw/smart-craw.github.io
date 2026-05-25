@@ -55,11 +55,10 @@ docker run -p 8000:8000 -v $(pwd):/app/db \
       <CodeHighlighter lang="bash">
         {String.raw`
 # if running remote LLM (eg Sonnet)
-docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
-  -e ANTHROPIC_AUTH_TOKEN=[yourauthtoken] \
-  -e ANTHROPIC_API_KEY=[yourapikey] \
+docker run -p 8000:8000 -e OPEN_API_COMPATIBLE_ENDPOINT=[yourllmurl] \
   -v $(pwd):/app/db \
-  -v $(pwd)/memory:/app/smart-craw-server/memory \
+  $(pwd):/app/bots \
+  -v $(pwd)/memory:/app/memory \
   --add-host=host.docker.internal:host-gateway \
   ghcr.io/smart-craw/smart-craw:${version}
           `}
@@ -68,11 +67,9 @@ docker run -p 8000:8000 -e ANTHROPIC_BASE_URL=[yourllmurl] \
       <Paragraph>
         <ul>
           <li>
-            ANTHROPIC_BASE_URL (defaults to "http://host.docker.internal:11434",
-            local Ollama)
+            OPEN_API_COMPATIBLE_ENDPOINT (defaults to
+            "http://host.docker.internal:11434", local Ollama)
           </li>
-          <li>ANTHROPIC_AUTH_TOKEN (defaults to "ollama")</li>
-          <li>ANTHROPIC_API_KEY (defaults to "sk-local-dummy")</li>
           <li>LOG_LEVEL (defaults to "info")</li>
           <li>
             START_THINK_TOKEN (start token for thinking, defaults to
