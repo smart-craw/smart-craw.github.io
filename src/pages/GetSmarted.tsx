@@ -54,7 +54,7 @@ docker run -p 8000:8000 -v $(pwd):/app/db \
       <Paragraph>If using a remote (eg Claude) LLM:</Paragraph>
       <CodeHighlighter lang="bash">
         {String.raw`
-# if running remote LLM (eg Sonnet)
+# if running remote LLM
 docker run -p 8000:8000 -e OPEN_API_COMPATIBLE_ENDPOINT=[yourllmurl] \
   -v $(pwd):/app/db \
   $(pwd):/app/bots \
